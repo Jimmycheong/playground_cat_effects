@@ -1,4 +1,4 @@
-name := "scala_project_template" // Please change
+name := "playground_cats_effects" // Please change
 
 version := "0.1"
 
@@ -12,4 +12,18 @@ libraryDependencies ++= Seq(
   "com.typesafe" % "config" % "1.3.4",
   "ch.qos.logback" % "logback-classic" % "1.2.3",
   "com.typesafe.scala-logging" %% "scala-logging" % "3.9.2"
+) ++ catsDependencies ++ additionDeps
+
+scalacOptions += "-Ypartial-unification"
+
+val catsVersion = "2.0.0"
+
+val catsDependencies = Seq(
+  "org.typelevel" %% "cats-core" % catsVersion,
+  "org.typelevel" %% "cats-effect" % catsVersion
+)
+
+val additionDeps = Seq(
+  "co.fs2" %% "fs2-core" % "2.0.0",
+  "io.circe" % "circe-fs2_2.12" % "0.12.0"
 )
